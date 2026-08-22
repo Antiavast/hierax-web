@@ -219,3 +219,50 @@ if (galleryTrack) {
 
   buildTrack('all');
 }
+
+/* Formulario de contacto: envío sin recargar la página */
+const contactForm = document.querySelector('.contact-form');
+if (contactForm) {
+  const statusEl = document.getElementById('cfStatus');
+  const isEnglish = document.documentElement.lang === 'en';
+  const texts = {
+    sending: isEnglish ? 'Sending…' : 'Enviando…',
+    ok: isEnglish ? 'Message sent. We will get back to you soon.' : 'Mensaje enviado. Te responderemos en breve.',
+    error: isEnglish
+      ? 'Something went wrong. Please write to us directly by email.'
+      : 'Algo ha fallado. Escríbenos directamente por email.',
+    notConfigured: isEnglish
+      ? 'Contact form not configured yet — please write to us by email.'
+      : 'El formulario aún no está configurado — escríbenos por email mientras tanto.',
+  };
+
+  contactForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const action = contactForm.getAttribute('action') || '';
+    if (action.includes('TU_ID_DE_FORMSPREE')) {
+      statusEl.textContent = texts.notConfigured;
+      statusEl.className = 'form-status error';
+      return;
+    }
+    statusEl.textContent = texts.sending;
+    statusEl.className = 'form-status';
+    try {
+      const response = await fetch(action, {
+        method: 'POST',
+        body: new FormData(contactForm),
+        headers: { Accept: 'application/json' },
+      });
+      if (response.ok) {
+        statusEl.textContent = texts.ok;
+        statusEl.className = 'form-status ok';
+        contactForm.reset();
+      } else {
+        statusEl.textContent = texts.error;
+        statusEl.className = 'form-status error';
+      }
+    } catch (err) {
+      statusEl.textContent = texts.error;
+      statusEl.className = 'form-status error';
+    }
+  });
+}

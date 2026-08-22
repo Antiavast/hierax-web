@@ -72,7 +72,10 @@
           <li><a href="#danos">Damage Levels</a></li>
           <li><a href="#informe">Report</a></li>
           <li><a href="#contacto" class="nav-cta">Contact</a></li>
-          <li class="lang-switch-item"><a href="index.html" class="lang-switch-btn" title="Cambiar a Español">EN | ES</a></li>
+          <li class="lang-switch-item">
+            <a href="index.html" class="lang-btn">ES</a>
+            <a href="index-en.html" class="lang-btn lang-btn-active" aria-current="page">EN</a>
+          </li>
         </ul>
       </nav>
     </div>
@@ -88,7 +91,8 @@
   <div class="hero-overlay-graphic"></div>
   
   <div class="container hero-inner">
-    <h1 class="hero-headline">ADVANCED DRONE INSPECTION TECHNOLOGIES</h1>
+    <p class="hero-eyebrow">Port infrastructure inspection · Advanced UAS technology</p>
+    <h1 class="hero-headline">ADVANCED <span class="accent-word">DRONE</span> INSPECTION TECHNOLOGIES</h1>
 
     <p class="hero-description">
       At HIERAX Intelligent Solutions, we evaluate the structural condition of wharves, jetties, breakwaters, and cargo cranes to anticipate failures, prioritize maintenance, and ensure the safety of port operations using state-of-the-art UAS technologies and advanced IT systems.
@@ -395,9 +399,39 @@
   <section id="contacto" class="section section-cta">
     <div class="container cta-inner">
       <h2>Need to Inspect Your Port Infrastructure?</h2>
-      <p>Contact us to schedule an inspection campaign or inquire about your structural asset conditions.</p>
-      <div class="contact-list">
-        <a href="mailto:info@hieraxis.com" class="btn btn-primary">info@hieraxis.com</a>
+      <p>Tell us what you need and we'll get back to you as soon as possible.</p>
+
+      <!-- ⚠️ IMPORTANT: this is a static site (no backend), so the form needs a free external
+           service to receive submissions by email, e.g. Formspree:
+           1) Go to https://formspree.io and create a free account
+           2) Create a new form and copy the "endpoint" it gives you (something like https://formspree.io/f/xxxxxxx)
+           3) Replace TU_ID_DE_FORMSPREE in the action attribute below with that endpoint -->
+      <form class="contact-form" action="https://formspree.io/f/TU_ID_DE_FORMSPREE" method="POST" novalidate>
+        <div class="form-row">
+          <div class="form-field">
+            <label for="cf-name">Name</label>
+            <input type="text" id="cf-name" name="name" autocomplete="name" required>
+          </div>
+          <div class="form-field">
+            <label for="cf-email">Email</label>
+            <input type="email" id="cf-email" name="email" autocomplete="email" required>
+          </div>
+        </div>
+        <div class="form-field">
+          <label for="cf-subject">Subject</label>
+          <input type="text" id="cf-subject" name="subject" required>
+        </div>
+        <div class="form-field">
+          <label for="cf-message">Message</label>
+          <textarea id="cf-message" name="message" rows="5" required></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary btn-lg">Send message</button>
+        <p class="form-status" id="cfStatus" role="status" aria-live="polite"></p>
+      </form>
+
+      <div class="contact-list contact-list-alt">
+        <span class="muted small">or reach us directly:</span>
+        <a href="mailto:info@hieraxis.com" class="btn btn-outline">info@hieraxis.com</a>
         <!-- ⚠️ Replace with your real phone number before publishing -->
         <a href="tel:+34123456789" class="btn btn-outline">+34 123 45 67 89</a>
       </div>
@@ -410,6 +444,7 @@
     <div class="hero-watermark">
       <img src="assets/logo-icon.png" alt="HIERAX" class="header-logo">
       <span>HIERAX</span>
+
     </div>
   </section>
 

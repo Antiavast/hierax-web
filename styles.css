@@ -212,25 +212,38 @@ p { margin: 0 0 1em; }
 
 /* Selector de idioma */
 .lang-switch-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
   margin-left: 10px;
   padding-left: 10px;
   border-left: 1px solid rgba(255, 255, 255, 0.25);
 }
 
-.lang-switch-btn {
-  border: 1px solid rgba(0, 0, 0, 0.6);
-  background: rgba(11, 26, 42, 0.4);
-  padding: 6px 14px;
+.lang-btn {
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  background: transparent;
+  color: rgba(255, 255, 255, 0.75);
+  padding: 6px 12px;
   border-radius: 20px;
-  font-size: 1rem !important;
-  letter-spacing: 0.05em;
+  font-size: 0.85rem !important;
   font-weight: 800;
+  letter-spacing: 0.04em;
+  text-shadow: none !important;
+  text-decoration: none;
+  transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
 }
 
-.lang-switch-btn:hover {
-  background: var(--white);
+.lang-btn:hover {
+  border-color: var(--accent);
+  color: var(--white);
+}
+
+.lang-btn-active,
+.lang-btn-active:hover {
+  background: var(--accent);
   color: var(--navy-950) !important;
-  text-shadow: none !important;
+  border-color: var(--accent);
 }
 
 .nav-toggle {
@@ -253,14 +266,14 @@ p { margin: 0 0 1em; }
 /* Hero Section */
 .hero {
   position: relative;
-  min-height: calc(100vh - 108px);
-  margin-top: 108px;
+  min-height: 100vh;
+  margin-top: 0;
   display: flex;
   align-items: center;
   color: var(--white);
   overflow: hidden;
   background: var(--navy-950);
-  padding: 40px 0;
+  padding: 148px 0 40px;
   scroll-margin-top: 122px;
 }
 
@@ -326,20 +339,47 @@ p { margin: 0 0 1em; }
 }
 .hero-watermark .header-logo { height: 22px; opacity: 0.85; filter: none; border: none; box-shadow: none; }
 
+.hero-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-sublogo);
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 14px;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.7);
+}
+.hero-eyebrow::before {
+  content: "";
+  width: 28px;
+  height: 2px;
+  background: var(--accent);
+  display: inline-block;
+}
+
 .hero-headline {
   font-family: var(--font-tech);
-  font-size: clamp(1.8rem, 3.2vw, 2.6rem);
+  font-size: clamp(2rem, 3.6vw, 3rem);
   font-weight: 800;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.06em;
   color: #ffffff;
   text-transform: uppercase;
   margin-bottom: 20px;
   max-width: 920px;
-  line-height: 1.25;
-  background: linear-gradient(180deg, #ffffff 0%, #f1f5f9 45%, #cbd5e1 100%);
+  line-height: 1.22;
+  background: linear-gradient(180deg, #ffffff 0%, #eef2f6 45%, #cfd9e3 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  filter: drop-shadow(0 4px 16px rgba(0, 0, 0, 0.8));
+  filter: drop-shadow(0 6px 22px rgba(0, 0, 0, 0.85));
+}
+
+.accent-word {
+  background: linear-gradient(180deg, #ffd699 0%, var(--accent) 55%, #b56a1f 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .hero-description {
@@ -871,6 +911,70 @@ p { margin: 0 0 1em; }
 .bar-warn { background: var(--warn); }
 .bar-danger { background: var(--danger); }
 
+/* Formulario de contacto */
+.contact-form {
+  max-width: 560px;
+  margin: 0 auto 20px;
+  text-align: left;
+}
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+.form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 16px;
+}
+.form-field label {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--steel-300);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+.form-field input,
+.form-field textarea {
+  font-family: inherit;
+  font-size: 0.95rem;
+  padding: 12px 14px;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--white);
+  resize: vertical;
+  transition: border-color 0.15s ease, background 0.15s ease;
+}
+.form-field input::placeholder,
+.form-field textarea::placeholder { color: rgba(255,255,255,0.35); }
+.form-field input:focus,
+.form-field textarea:focus {
+  outline: none;
+  border-color: var(--accent);
+  background: rgba(255, 255, 255, 0.1);
+}
+.contact-form .btn { width: 100%; cursor: pointer; border: none; }
+.form-status {
+  margin: 12px 0 0;
+  font-size: 0.88rem;
+  min-height: 1.2em;
+}
+.form-status.ok { color: var(--ok); }
+.form-status.error { color: var(--danger); }
+
+.contact-list-alt {
+  margin-top: 8px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255,255,255,0.1);
+}
+.contact-list-alt .muted.small { width: 100%; margin-bottom: 4px; }
+
+@media (max-width: 560px) {
+  .form-row { grid-template-columns: 1fr; }
+}
+
 /* CTA */
 .section-cta {
   position: relative;
@@ -970,7 +1074,7 @@ p { margin: 0 0 1em; }
   .lang-switch-item { margin-left: 0; padding-left: 0; border-left: none; }
   .checklist-head, .checklist-row { grid-template-columns: 1fr; gap: 4px; }
   .checklist-head span:not(:first-child) { display: none; }
-  .hero { min-height: auto; padding: 48px 0 40px; margin-top: 84px; }
+  .hero { min-height: 100vh; padding: 132px 0 40px; margin-top: 0; }
   .hero-overlay-graphic { background-size: 55%; opacity: 0.5; }
   .section { scroll-margin-top: 98px; }
 }
@@ -979,8 +1083,9 @@ p { margin: 0 0 1em; }
   .grid-4 { grid-template-columns: 1fr; }
   .process { grid-template-columns: 1fr; }
   .dashboard-grid { grid-template-columns: repeat(2, 1fr); }
-  .hero { padding: 30px 0; min-height: auto; margin-top: 68px; }
-  .hero-headline { font-size: 1.4rem; }
+  .hero { padding: 98px 0 30px; min-height: 100vh; margin-top: 0; }
+  .hero-headline { font-size: 1.55rem; }
+  .hero-eyebrow { font-size: 0.75rem; letter-spacing: 0.1em; }
   .hero-description { font-size: 1rem; min-height: auto; }
   .hero-actions { flex-direction: column; }
   .hero-actions .btn { width: 100%; text-align: center; }
@@ -1001,6 +1106,6 @@ p { margin: 0 0 1em; }
   .header-logo { height: 42px; }
   .site-header { min-height: 58px; height: 58px; }
   .header-inner { min-height: 58px; height: 58px; }
-  .hero { min-height: auto; margin-top: 58px; }
+  .hero { padding-top: 88px; margin-top: 0; }
   .section { scroll-margin-top: 72px; }
 }

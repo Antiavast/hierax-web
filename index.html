@@ -72,7 +72,10 @@
           <li><a href="#danos">Niveles de daño</a></li>
           <li><a href="#informe">Informe</a></li>
           <li><a href="#contacto" class="nav-cta">Contacto</a></li>
-          <li class="lang-switch-item"><a href="index-en.html" class="lang-switch-btn" title="Switch to English">EN | ES</a></li>
+          <li class="lang-switch-item">
+            <a href="index.html" class="lang-btn lang-btn-active" aria-current="page">ES</a>
+            <a href="index-en.html" class="lang-btn">EN</a>
+          </li>
         </ul>
       </nav>
     </div>
@@ -88,7 +91,8 @@
   <div class="hero-overlay-graphic"></div>
   
   <div class="container hero-inner">
-    <h1 class="hero-headline">TECNOLOGÍAS DE INSPECCIÓN AVANZADAS CON DRONES</h1>
+    <p class="hero-eyebrow">Inspección portuaria · Tecnología UAS avanzada</p>
+    <h1 class="hero-headline">TECNOLOGÍAS DE INSPECCIÓN AVANZADAS CON <span class="accent-word">DRONES</span></h1>
 
     <p class="hero-description">
       En HIERAX Intelligent Solutions evaluamos el estado estructural de muelles, pantalanes, escolleras y grúas de carga para anticipar fallos, priorizar mantenimiento y garantizar la seguridad de las operaciones portuarias usando las últimas tecnologías en UAS y sistemas informáticos avanzados.
@@ -395,9 +399,39 @@
   <section id="contacto" class="section section-cta">
     <div class="container cta-inner">
       <h2>¿Necesitas inspeccionar tu infraestructura portuaria?</h2>
-      <p>Contáctanos para programar una campaña de inspección o resolver dudas sobre el estado de tus estructuras.</p>
-      <div class="contact-list">
-        <a href="mailto:info@hieraxis.com" class="btn btn-primary">info@hieraxis.com</a>
+      <p>Cuéntanos qué necesitas y te responderemos lo antes posible.</p>
+
+      <!-- ⚠️ IMPORTANTE: esto es un sitio estático (sin servidor propio), así que el formulario
+           necesita un servicio externo gratuito para recibir los envíos por email, por ejemplo Formspree:
+           1) Entra en https://formspree.io y crea una cuenta gratuita
+           2) Crea un formulario nuevo y copia el "endpoint" que te dan (algo como https://formspree.io/f/xxxxxxx)
+           3) Sustituye TU_ID_DE_FORMSPREE en el atributo action de abajo por ese endpoint -->
+      <form class="contact-form" action="https://formspree.io/f/TU_ID_DE_FORMSPREE" method="POST" novalidate>
+        <div class="form-row">
+          <div class="form-field">
+            <label for="cf-name">Nombre</label>
+            <input type="text" id="cf-name" name="name" autocomplete="name" required>
+          </div>
+          <div class="form-field">
+            <label for="cf-email">Email</label>
+            <input type="email" id="cf-email" name="email" autocomplete="email" required>
+          </div>
+        </div>
+        <div class="form-field">
+          <label for="cf-subject">Asunto</label>
+          <input type="text" id="cf-subject" name="subject" required>
+        </div>
+        <div class="form-field">
+          <label for="cf-message">Mensaje</label>
+          <textarea id="cf-message" name="message" rows="5" required></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary btn-lg">Enviar mensaje</button>
+        <p class="form-status" id="cfStatus" role="status" aria-live="polite"></p>
+      </form>
+
+      <div class="contact-list contact-list-alt">
+        <span class="muted small">o escríbenos directamente:</span>
+        <a href="mailto:info@hieraxis.com" class="btn btn-outline">info@hieraxis.com</a>
         <!-- ⚠️ Sustituye por tu teléfono real antes de publicar -->
         <a href="tel:+34123456789" class="btn btn-outline">123 45 67 89</a>
       </div>
