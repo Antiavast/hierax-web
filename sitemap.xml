@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://antiavast.github.io/hierax-web/</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://antiavast.github.io/hierax-web/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://antiavast.github.io/hierax-web/index-en.html"/>
+  </url>
+  <url>
+    <loc>https://antiavast.github.io/hierax-web/index-en.html</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://antiavast.github.io/hierax-web/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://antiavast.github.io/hierax-web/index-en.html"/>
+  </url>
+</urlset>
