@@ -1,0 +1,106 @@
+<svg viewBox="0 0 1600 900" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#0a1420"/>
+      <stop offset="55%" stop-color="#123049"/>
+      <stop offset="100%" stop-color="#1c4a68"/>
+    </linearGradient>
+    <linearGradient id="water" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#0d3550"/>
+      <stop offset="100%" stop-color="#081824"/>
+    </linearGradient>
+    <linearGradient id="pier" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#2b4a63"/>
+      <stop offset="100%" stop-color="#16293a"/>
+    </linearGradient>
+    <radialGradient id="beam" cx="50%" cy="0%" r="75%">
+      <stop offset="0%" stop-color="#e08a2c" stop-opacity="0.35"/>
+      <stop offset="100%" stop-color="#e08a2c" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#8fa7bb" stroke-opacity="0.08" stroke-width="1"/>
+    </pattern>
+  </defs>
+
+  <!-- sky -->
+  <rect x="0" y="0" width="1600" height="620" fill="url(#sky)"/>
+  <!-- water -->
+  <rect x="0" y="600" width="1600" height="300" fill="url(#water)"/>
+  <!-- grid overlay across whole scene -->
+  <rect x="0" y="0" width="1600" height="900" fill="url(#grid)"/>
+
+  <!-- water reflections -->
+  <g stroke="#3f6b86" stroke-opacity="0.25" stroke-width="2">
+    <line x1="80" y1="660" x2="260" y2="660"/>
+    <line x1="340" y1="700" x2="600" y2="700"/>
+    <line x1="900" y1="680" x2="1120" y2="680"/>
+    <line x1="1200" y1="720" x2="1460" y2="720"/>
+    <line x1="120" y1="760" x2="420" y2="760"/>
+    <line x1="700" y1="780" x2="980" y2="780"/>
+    <line x1="1080" y1="800" x2="1400" y2="800"/>
+  </g>
+
+  <!-- distant cranes -->
+  <g fill="none" stroke="#24405a" stroke-width="6" opacity="0.6">
+    <path d="M120 610 V420 M120 420 H260 M220 420 V460"/>
+    <path d="M1420 610 V380 M1420 380 H1300 M1340 380 V440"/>
+  </g>
+
+  <!-- quay / pier deck -->
+  <rect x="0" y="600" width="1600" height="26" fill="url(#pier)"/>
+  <rect x="0" y="600" width="1600" height="4" fill="#3a5b74"/>
+
+  <!-- pile clusters under the pier -->
+  <g fill="#152738">
+    <rect x="240" y="626" width="14" height="130"/>
+    <rect x="300" y="626" width="14" height="150"/>
+    <rect x="360" y="626" width="14" height="120"/>
+    <rect x="980" y="626" width="14" height="140"/>
+    <rect x="1040" y="626" width="14" height="160"/>
+    <rect x="1100" y="626" width="14" height="125"/>
+  </g>
+
+  <!-- container stacks silhouette -->
+  <g fill="#101f2d">
+    <rect x="640" y="520" width="70" height="80"/>
+    <rect x="716" y="500" width="70" height="100"/>
+    <rect x="792" y="535" width="70" height="65"/>
+  </g>
+
+  <!-- inspection scan beam from drone -->
+  <path d="M1180 200 L900 626 L1120 626 Z" fill="url(#beam)"/>
+
+  <!-- drone -->
+  <g transform="translate(1180,190)">
+    <line x1="-46" y1="-46" x2="46" y2="46" stroke="#e8edf1" stroke-width="4"/>
+    <line x1="46" y1="-46" x2="-46" y2="46" stroke="#e8edf1" stroke-width="4"/>
+    <circle cx="-46" cy="-46" r="16" fill="none" stroke="#e08a2c" stroke-width="3"/>
+    <circle cx="46" cy="-46" r="16" fill="none" stroke="#e08a2c" stroke-width="3"/>
+    <circle cx="-46" cy="46" r="16" fill="none" stroke="#e08a2c" stroke-width="3"/>
+    <circle cx="46" cy="46" r="16" fill="none" stroke="#e08a2c" stroke-width="3"/>
+    <rect x="-18" y="-12" width="36" height="24" rx="6" fill="#e8edf1"/>
+    <circle cx="0" cy="6" r="4" fill="#e08a2c"/>
+  </g>
+  <line x1="1180" y1="238" x2="1010" y2="600" stroke="#e08a2c" stroke-width="1.5" stroke-dasharray="4 6" opacity="0.7"/>
+
+  <!-- structural scan target box on the pier / piles -->
+  <g stroke="#e08a2c" stroke-width="2.5" fill="none" opacity="0.9">
+    <path d="M960 600 v-24 h24"/>
+    <path d="M1140 600 v-24 h-24"/>
+    <path d="M960 700 v24 h24"/>
+    <path d="M1140 700 v24 h-24"/>
+  </g>
+  <g fill="#e08a2c" opacity="0.85">
+    <circle cx="994" cy="650" r="3"/>
+    <circle cx="1030" cy="660" r="3"/>
+    <circle cx="1066" cy="645" r="3"/>
+    <circle cx="1100" cy="668" r="3"/>
+  </g>
+
+  <!-- scan arcs from a second point on the pier (handheld / rov style) -->
+  <g stroke="#8fa7bb" stroke-width="1.5" fill="none" opacity="0.35">
+    <circle cx="330" cy="626" r="60"/>
+    <circle cx="330" cy="626" r="100"/>
+    <circle cx="330" cy="626" r="140"/>
+  </g>
+</svg>

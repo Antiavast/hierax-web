@@ -1,0 +1,50 @@
+<svg viewBox="0 0 1600 900" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <radialGradient id="beam2" cx="50%" cy="0%" r="75%">
+      <stop offset="0%" stop-color="#e08a2c" stop-opacity="0.45"/>
+      <stop offset="100%" stop-color="#e08a2c" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="grid2" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#ffffff" stroke-opacity="0.06" stroke-width="1"/>
+    </pattern>
+  </defs>
+
+  <rect x="0" y="0" width="1600" height="900" fill="url(#grid2)"/>
+
+  <!-- scan beam from drone down to crane -->
+  <path d="M1300 160 L1020 720 L1300 720 Z" fill="url(#beam2)"/>
+
+  <!-- drone -->
+  <g transform="translate(1300,150)">
+    <line x1="-46" y1="-46" x2="46" y2="46" stroke="#f4f7f9" stroke-width="4"/>
+    <line x1="46" y1="-46" x2="-46" y2="46" stroke="#f4f7f9" stroke-width="4"/>
+    <circle cx="-46" cy="-46" r="16" fill="none" stroke="#e08a2c" stroke-width="3"/>
+    <circle cx="46" cy="-46" r="16" fill="none" stroke="#e08a2c" stroke-width="3"/>
+    <circle cx="-46" cy="46" r="16" fill="none" stroke="#e08a2c" stroke-width="3"/>
+    <circle cx="46" cy="46" r="16" fill="none" stroke="#e08a2c" stroke-width="3"/>
+    <rect x="-18" y="-12" width="36" height="24" rx="6" fill="#f4f7f9"/>
+    <circle cx="0" cy="6" r="4" fill="#e08a2c"/>
+  </g>
+  <line x1="1300" y1="198" x2="1160" y2="560" stroke="#e08a2c" stroke-width="1.5" stroke-dasharray="4 6" opacity="0.8"/>
+
+  <!-- structural scan target box -->
+  <g stroke="#e08a2c" stroke-width="2.5" fill="none" opacity="0.95">
+    <path d="M1080 560 v-26 h26"/>
+    <path d="M1260 560 v-26 h-26"/>
+    <path d="M1080 700 v26 h26"/>
+    <path d="M1260 700 v26 h-26"/>
+  </g>
+  <g fill="#e08a2c" opacity="0.9">
+    <circle cx="1116" cy="610" r="3.5"/>
+    <circle cx="1152" cy="622" r="3.5"/>
+    <circle cx="1188" cy="605" r="3.5"/>
+    <circle cx="1222" cy="630" r="3.5"/>
+  </g>
+
+  <!-- secondary faint scan rings, lower-left -->
+  <g stroke="#ffffff" stroke-width="1.5" fill="none" opacity="0.18">
+    <circle cx="260" cy="760" r="70"/>
+    <circle cx="260" cy="760" r="120"/>
+    <circle cx="260" cy="760" r="170"/>
+  </g>
+</svg>
