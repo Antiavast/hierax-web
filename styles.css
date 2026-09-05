@@ -1196,65 +1196,27 @@ p { margin: 0 0 1em; }
   .section { scroll-margin-top: 72px; }
 }
 
-/* Marca en la marca de agua del pie (watermark) */
-.hero-watermark {
-  position: absolute;
-  right: 24px;
-  bottom: 18px;
+/* =========================================
+   CORRECCIÓN DEL PIE DE PÁGINA (COPYRIGHT)
+   ========================================= */
+.footer-copyright {
   display: flex;
   align-items: center;
-  gap: 10px;
-  pointer-events: none;
-  z-index: 2;
-  opacity: 0.9;
+  flex-wrap: wrap;
+  gap: 6px;
 }
 
-.hero-watermark .header-logo {
-  height: 38px;
-  width: auto;
-  opacity: 1;
-}
-
-.watermark-text {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  line-height: 1;
-  gap: 2px;
-}
-
-.hero-watermark .brand-name-hierax {
-  font-family: var(--font-tech);
-  font-size: 1.25rem;
-  font-weight: 800;
-  letter-spacing: 0.04em;
-  line-height: 0.9;
-  background: linear-gradient(180deg, #ffffff 0%, #d7dee5 32%, #8b99a8 52%, #eef2f6 70%, #56616d 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.6));
-}
-
-.hero-watermark .brand-name-sub {
-  font-family: var(--font-sublogo);
-  font-size: 0.62rem;
-  font-weight: 700;
-  line-height: 1;
-  letter-spacing: 0.04em;
-  word-spacing: normal;
-  background: linear-gradient(180deg, #ffd699 0%, var(--accent) 55%, #b56a1f 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-/* Marca en el copyright del footer */
 .footer-brand {
   display: inline-flex;
-  align-items: baseline;
+  align-items: center;
   gap: 5px;
   font-weight: 800;
+}
+
+.footer-mini-logo {
+  height: 18px;
+  width: auto;
+  object-fit: contain;
 }
 
 .footer-brand .brand-name-hierax {
