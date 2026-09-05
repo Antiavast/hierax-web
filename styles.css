@@ -335,7 +335,8 @@ p { margin: 0 0 1em; }
   position: absolute;
   inset: 0;
   z-index: 0;
-  background-image: url("assets/miami-hero.jpg");
+  /* Archivo optimizado a WEBP */
+  background-image: url("assets/miami-hero.webp");
   background-size: cover;
   background-position: center 40%;
 }
@@ -376,9 +377,6 @@ p { margin: 0 0 1em; }
   z-index: 3; 
   width: 100%;
 }
-
-
-
 
 .hero-eyebrow {
   display: inline-flex;
@@ -1132,9 +1130,9 @@ p { margin: 0 0 1em; }
   .site-header { min-height: 84px; height: 84px; }
   .header-inner { min-height: 84px; height: 84px; padding: 0 16px; }
   .header-logo { height: 62px; }
-  .brand-text { height: 62px; margin-left: 10px; padding: 4px 0 2px; }
-  .brand-name-hierax { font-size: 2.2rem; line-height: 0.85; }
-  .brand-name-sub { font-size: 1.05rem; line-height: 0.95; }
+  .brand-text { height: 62px; margin-left: 10px; padding: 0 !important; justify-content: center !important; gap: 3px; }
+  .brand-name-hierax { font-size: 2.2rem; line-height: 0.9 !important; }
+  .brand-name-sub { font-size: 1.05rem; line-height: 1 !important; }
   .main-nav { flex: none; padding-left: 0; }
   .nav-toggle { display: flex; }
   .main-nav ul {
@@ -1172,9 +1170,9 @@ p { margin: 0 0 1em; }
   .hero-actions { flex-direction: column; }
   .hero-actions .btn { width: 100%; text-align: center; }
   .header-logo { height: 50px; }
-  .brand-text { height: 50px; margin-left: 8px; padding: 3px 0 2px; }
-  .brand-name-hierax { font-size: 1.35rem; }
-  .brand-name-sub { font-size: 0.70rem; }
+  .brand-text { height: 50px; margin-left: 10px !important; padding: 0 !important; justify-content: center !important; gap: 1px; }
+  .brand-name-hierax { font-size: 1.6rem !important; line-height: 0.9 !important; }
+  .brand-name-sub { font-size: 0.70rem; line-height: 1 !important; }
   .site-header { min-height: 68px; height: 68px; }
   .header-inner { min-height: 68px; height: 68px; }
   .hero-stats { gap: 20px; }
@@ -1190,8 +1188,8 @@ p { margin: 0 0 1em; }
 @media (max-width: 400px) {
   .header-logo { height: 42px; }
   .brand-name-sub { display: none; }
-  .brand-text { padding-bottom: 0; }
-  .brand-name-hierax { font-size: 1.1rem; }
+  .brand-text { padding-bottom: 0; justify-content: center !important; }
+  .brand-name-hierax { font-size: 1.3rem !important; }
   .site-header { min-height: 58px; height: 58px; }
   .header-inner { min-height: 58px; height: 58px; }
   .hero { padding-top: 88px; margin-top: 0; }
