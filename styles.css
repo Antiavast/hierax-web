@@ -141,7 +141,7 @@ p { margin: 0 0 1em; }
 }
 
 .header-logo { 
-  height: 84px; 
+  height: 76px; 
   width: auto; 
   display: block; 
   object-fit: contain;
@@ -152,6 +152,60 @@ p { margin: 0 0 1em; }
 
 .header-logo:hover {
   transform: scale(1.02);
+}
+
+/* Bloque HIERAX + INTELLIGENT SOLUTIONS centrado exactamente en el eje vertical del halcón */
+/* Bloque de texto HIERAX + INTELLIGENT SOLUTIONS
+   Letras significativamente más grandes para abarcar y llenar la altura del logo (76px) */
+.brand-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  height: 76px;                   /* Misma altura exacta que .header-logo */
+  min-height: 76px;
+  margin-left: 16px;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.brand-name-hierax {
+  display: block;
+  white-space: nowrap;
+  font-family: var(--font-tech);
+  font-size: 3.15rem;             /* Letras de HIERAX mucho más grandes para llenar la parte superior */
+  font-weight: 900;
+  letter-spacing: 0.04em;
+  line-height: 0.82;              /* Ajuste compacto para eliminar padding muerto */
+  text-transform: uppercase;
+  text-align: center;
+  background: linear-gradient(180deg, #ffffff 0%, #d7dee5 32%, #8b99a8 52%, #eef2f6 70%, #56616d 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 2px 3px rgba(0, 0, 0, 0.5));
+  margin: 0;
+  padding: 0;
+}
+
+.brand-name-sub {
+  display: block;
+  white-space: nowrap;
+  font-family: var(--font-sublogo);
+  font-size: 1.42rem;             /* Letras grandes que igualan el ancho de HIERAX y llenan la base */
+  font-weight: 800;
+  line-height: 0.95;
+  letter-spacing: 0.05em;
+  word-spacing: normal;           /* Espacio natural limpio entre INTELLIGENT y SOLUTIONS */
+  text-align: center;
+  text-transform: uppercase;
+  background: linear-gradient(180deg, #ffd699 0%, var(--accent) 55%, #b56a1f 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.4));
+  margin: 0;
+  padding: 0;
 }
 
 /* Navegación */
@@ -323,21 +377,8 @@ p { margin: 0 0 1em; }
   width: 100%;
 }
 
-.hero-watermark {
-  position: absolute;
-  right: 24px;
-  bottom: 18px;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  color: rgba(255,255,255,0.55);
-  font-weight: 700;
-  font-size: 0.95rem;
-  letter-spacing: 0.03em;
-  pointer-events: none;
-  z-index: 2;
-}
-.hero-watermark .header-logo { height: 22px; opacity: 0.85; filter: none; border: none; box-shadow: none; }
+
+
 
 .hero-eyebrow {
   display: inline-flex;
@@ -1000,42 +1041,80 @@ p { margin: 0 0 1em; }
 }
 .social-links {
   display: flex;
-  gap: 24px;
+  gap: 16px;
   justify-content: center;
+  align-items: center;
   flex-wrap: wrap;
 }
-.social-links a {
-  color: var(--steel-300);
+
+.social-icon-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  color: var(--white);
   text-decoration: none;
-  font-size: 0.88rem;
-  border-bottom: 1px solid transparent;
-  transition: color 0.15s ease, border-color 0.15s ease;
+  transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
 }
-.social-links a:hover { color: var(--white); border-color: var(--accent); }
+
+.social-icon-btn svg {
+  display: block;
+  transition: transform 0.2s ease;
+}
+
+.social-icon-btn:hover {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--navy-950);
+  transform: translateY(-3px);
+  box-shadow: 0 4px 14px rgba(224, 138, 44, 0.4);
+}
+
+.social-icon-btn:hover svg {
+  transform: scale(1.1);
+}
 
 /* Footer */
 .site-footer {
   background: var(--navy-950);
   border-top: 1px solid rgba(255,255,255,0.08);
-  padding: 20px 0;
+  padding: 24px 0;
 }
 .footer-inner {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   flex-wrap: wrap;
-  gap: 8px;
+  gap: 16px;
   color: var(--steel-300);
-  font-size: 0.82rem;
+  font-size: 0.85rem;
 }
 .footer-social {
   display: flex;
-  gap: 18px;
+  gap: 12px;
+  align-items: center;
 }
-.footer-social a {
+.footer-social .social-icon-btn {
+  width: 36px;
+  height: 36px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.12);
   color: var(--steel-300);
-  text-decoration: none;
 }
-.footer-social a:hover { color: var(--white); }
+.footer-social .social-icon-btn svg {
+  width: 16px;
+  height: 16px;
+}
+.footer-social .social-icon-btn:hover {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--navy-950);
+  box-shadow: 0 3px 10px rgba(224, 138, 44, 0.35);
+}
 
 /* Responsive */
 @media (max-width: 1280px) {
@@ -1053,6 +1132,9 @@ p { margin: 0 0 1em; }
   .site-header { min-height: 84px; height: 84px; }
   .header-inner { min-height: 84px; height: 84px; padding: 0 16px; }
   .header-logo { height: 62px; }
+  .brand-text { height: 62px; margin-left: 10px; padding: 4px 0 2px; }
+  .brand-name-hierax { font-size: 2.2rem; line-height: 0.85; }
+  .brand-name-sub { font-size: 1.05rem; line-height: 0.95; }
   .main-nav { flex: none; padding-left: 0; }
   .nav-toggle { display: flex; }
   .main-nav ul {
@@ -1090,6 +1172,9 @@ p { margin: 0 0 1em; }
   .hero-actions { flex-direction: column; }
   .hero-actions .btn { width: 100%; text-align: center; }
   .header-logo { height: 50px; }
+  .brand-text { height: 50px; margin-left: 8px; padding: 3px 0 2px; }
+  .brand-name-hierax { font-size: 1.35rem; }
+  .brand-name-sub { font-size: 0.70rem; }
   .site-header { min-height: 68px; height: 68px; }
   .header-inner { min-height: 68px; height: 68px; }
   .hero-stats { gap: 20px; }
@@ -1104,8 +1189,95 @@ p { margin: 0 0 1em; }
 
 @media (max-width: 400px) {
   .header-logo { height: 42px; }
+  .brand-name-sub { display: none; }
+  .brand-text { padding-bottom: 0; }
+  .brand-name-hierax { font-size: 1.1rem; }
   .site-header { min-height: 58px; height: 58px; }
   .header-inner { min-height: 58px; height: 58px; }
   .hero { padding-top: 88px; margin-top: 0; }
   .section { scroll-margin-top: 72px; }
+}
+
+/* Marca en la marca de agua del pie (watermark) */
+.hero-watermark {
+  position: absolute;
+  right: 24px;
+  bottom: 18px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  pointer-events: none;
+  z-index: 2;
+  opacity: 0.9;
+}
+
+.hero-watermark .header-logo {
+  height: 38px;
+  width: auto;
+  opacity: 1;
+}
+
+.watermark-text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  line-height: 1;
+  gap: 2px;
+}
+
+.hero-watermark .brand-name-hierax {
+  font-family: var(--font-tech);
+  font-size: 1.25rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  line-height: 0.9;
+  background: linear-gradient(180deg, #ffffff 0%, #d7dee5 32%, #8b99a8 52%, #eef2f6 70%, #56616d 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.6));
+}
+
+.hero-watermark .brand-name-sub {
+  font-family: var(--font-sublogo);
+  font-size: 0.62rem;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: 0.04em;
+  word-spacing: normal;
+  background: linear-gradient(180deg, #ffd699 0%, var(--accent) 55%, #b56a1f 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Marca en el copyright del footer */
+.footer-brand {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 5px;
+  font-weight: 800;
+}
+
+.footer-brand .brand-name-hierax {
+  font-family: var(--font-tech);
+  font-size: 0.95rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  background: linear-gradient(180deg, #ffffff 0%, #d7dee5 32%, #8b99a8 52%, #eef2f6 70%, #56616d 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.footer-brand .brand-name-sub {
+  font-family: var(--font-sublogo);
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  word-spacing: normal;
+  background: linear-gradient(180deg, #ffd699 0%, var(--accent) 55%, #b56a1f 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
 }

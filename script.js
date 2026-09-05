@@ -1,3 +1,28 @@
+/* Ajusta el tamaño de fuente de "INTELLIGENT SOLUTIONS" para que su ancho
+   sea exactamente idéntico al ancho de "HIERAX" con espacio natural */
+function fitBrandSub() {
+  document.querySelectorAll('.brand-text').forEach((wrap) => {
+    const main = wrap.querySelector('.brand-name-hierax');
+    const sub = wrap.querySelector('.brand-name-sub');
+    if (!main || !sub) return;
+
+    sub.style.fontSize = '';
+    const mainW = main.getBoundingClientRect().width;
+    const subW = sub.getBoundingClientRect().width;
+    if (mainW > 0 && subW > 0) {
+      const currentFontSize = parseFloat(window.getComputedStyle(sub).fontSize);
+      const targetFontSize = (mainW / subW) * currentFontSize;
+      sub.style.fontSize = targetFontSize.toFixed(2) + 'px';
+    }
+  });
+}
+
+window.addEventListener('load', fitBrandSub);
+window.addEventListener('resize', fitBrandSub);
+if (document.fonts && document.fonts.ready) {
+  document.fonts.ready.then(fitBrandSub);
+}
+
 const navToggle = document.getElementById('navToggle');
 const navList = document.getElementById('navList');
 
@@ -239,11 +264,7 @@ if (contactForm) {
   contactForm.addEventListener('submit', async (e) => {
     e.preventDefault();
     const action = contactForm.getAttribute('action') || '';
-    if (action.includes('TU_ID_DE_FORMSPREE')) {
-      statusEl.textContent = texts.notConfigured;
-      statusEl.className = 'form-status error';
-      return;
-    }
+    // Envío directo a info@hieraxis.com
     statusEl.textContent = texts.sending;
     statusEl.className = 'form-status';
     try {
